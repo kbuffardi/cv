@@ -75,12 +75,18 @@ jobs:
 
       - name: Set release metadata
         id: meta
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATE="$(date -u +'%d-%m-%Y')"
           TAG="${DATE}"
-          NAME="${DATE}"
+          N=2
+          while gh release view "${TAG}" > /dev/null 2>&1 && [ "${N}" -le 100 ]; do
+            TAG="${DATE}.v${N}"
+            N=$((N + 1))
+          done
           echo "release_tag=${TAG}" >> "${GITHUB_OUTPUT}"
-          echo "release_name=${NAME}" >> "${GITHUB_OUTPUT}"
+          echo "release_name=${TAG}" >> "${GITHUB_OUTPUT}"
 
       - name: Create release and attach PDF
         env:
