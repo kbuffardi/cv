@@ -51,6 +51,28 @@
 \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}
 \newrobustcmd*{\mkbibdesc}[1]{%
   \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+% Fix label width so every line of every reference is indented consistently,
+% regardless of whether the displayed number has one, two, or three digits.
+% With reversed numbering, internal label N maps to displayed "1" and internal
+% label 1 maps to the highest displayed number (= entrycount).  biblatex sizes
+% \labelnumberwidth from the largest *internal* number, which after reversal is
+% the *smallest* displayed number, making the box too narrow for double-digit
+% (or larger) displayed labels.  Redefining the bibliography environment here
+% forces the box width to match the actual maximum displayed number.
+\defbibenvironment{bibliography}
+  {\list
+     {\printtext[labelnumberwidth]{%
+        \printfield{labelprefix}%
+        \printfield{labelnumber}}}
+     {\settowidth{\labelnumberwidth}{[\csuse{entrycount:\therefsection}]}%
+      \setlength{\labelwidth}{\labelnumberwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}%
+   \renewcommand*{\makelabel}[1]{\hss##1}}
+  {}
+  {\endlist}
 \newcommand{\bibliofont}{\small}
 \setlength{\bibitemsep}{0.22\baselineskip}
 
