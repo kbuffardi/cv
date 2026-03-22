@@ -1,0 +1,32 @@
+name: Build CV PDF
+
+on:
+  push:
+    branches: main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          # latexmk handles the BibTeX/bibliography passes needed by papers.bib
+          latexmk_use_xelatex: false
+
+      - name: Rename output PDF
+        run: mv main.pdf buffardi-curriculum-vitae.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: buffardi-curriculum-vitae
+          path: buffardi-curriculum-vitae.pdf
+          if-no-files-found: error
