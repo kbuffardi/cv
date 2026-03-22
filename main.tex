@@ -14,6 +14,7 @@
 \usepackage{needspace}
 \usepackage{setspace}
 \usepackage{etoolbox}
+\usepackage{fontawesome}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.22em}
 \setlist[itemize]{itemsep=0.15em,topsep=0.15em,parsep=0pt,partopsep=0pt}
@@ -50,7 +51,22 @@
 % newest printed item gets the highest number, oldest gets [1]
 \DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}
 \newrobustcmd*{\mkbibdesc}[1]{%
-  \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+\number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+\defbibenvironment{bibliography}
+  {\list
+     {\printtext[labelnumberwidth]{%
+        \printfield{labelprefix}%
+        \printfield{labelnumber}}}
+     {\settowidth{\labelnumberwidth}{[\csuse{entrycount:\therefsection}]}%
+      \setlength{\labelwidth}{\labelnumberwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}}%
+   \renewcommand*{\makelabel}[1]{\hss##1}}
+  {\endlist}
+  {\item}
 \newcommand{\bibliofont}{\small}
 \setlength{\bibitemsep}{0.22\baselineskip}
 
@@ -60,14 +76,13 @@
 \begin{center}
 {\LARGE\bfseries Kevin Buffardi, Ph.D.}\par
 \vspace{0.25em}
-{\small
+{\small\faEnvelope~
 \href{mailto:kbuffardi@acm.org}{kbuffardi@acm.org}
 \enspace\textbar\enspace
-\href{https://learnbyfailure.com}{learnbyfailure.com}
+\faGlobe~\href{https://learnbyfailure.com}{learnbyfailure.com}
 \enspace\textbar\enspace
-\href{https://github.com/kbuffardi}{github.com/kbuffardi}}
+\faGithub~\href{https://github.com/kbuffardi}{github.com/kbuffardi}}
 \end{center}
-\vspace{0.1em}
 
 \needspace{6\baselineskip}\section*{Education} \textbf{Ph.D. in Computer Science}, Virginia Tech, June 2014 \\
 Dissertation: Modeling Student Software Testing Processes: Attitudes, Behaviors, Interventions, and Their Effects \\
@@ -276,23 +291,17 @@ buffardi2004music}
 \item Reviewer ACM International Computer Education Research (ICER), ACM Transactions of Computing Education (TOCE), Journal on Empirical Software Engineering (EMSE), ACM DATA BASE for Advances in Information Systems (SIGMISDB), Computer Science Education, Taylor and Francis
 \end{itemize}
 \needspace{6\baselineskip}\section*{Professional Development}
-\par Research and Sponsored Programs Grant Writing Bootcamp, Summer, 2018\par
-\par Hispanic Serving Institution (HSI) Faculty Learning Community, Spring, 2017\par
-\par Professor's Open Source Software Experience (POSSE) Foss2Serve---\url{http://foss2serve.org/}\par
-\par ---Professional development for instructors interested in student participation in Humanitarian Free and Open Source Software---\par
-
 \begin{itemize}[leftmargin=1.5em]
-\item Participated in NSF-funded POSSE Workshop, Spring 2015
+    \item AI curriculum committee group chair, CSCI department, 2026
+    \item Research and Sponsored Programs Grant Writing Bootcamp, Summer, 2018
+    \item Hispanic Serving Institution (HSI) Faculty Learning Community, Spring, 2017
+    \item rofessor's Open Source Software Experience (POSSE) Foss2Serve (\url{http://foss2serve.org/}) Professional development for instructors interested in student participation in Humanitarian Free and Open Source Software
+    \item Participated in NSF-funded POSSE Workshop, Spring 2015
+    \item Funded (awarded \$4000) development of open source course description and series of educational materials for a module on software testing and quality assurance
+    \item Collaborated and spoke as part of a peer-reviewed, five-person panel (SIGCSE 2017) on community engagement in open source projects
+    \item NSF Grant Writing Workshop, attended in Portland, Oregon, 2016
 \end{itemize}
 
-\begin{itemize}[leftmargin=1.5em]
-\item Funded (awarded \$4000) development of open source course description and series of educational materials for a module on software testing and quality assurance
-\end{itemize}
-
-\begin{itemize}[leftmargin=1.5em]
-\item Collaborated and spoke as part of a peer-reviewed, five-person panel (SIGCSE 2017) on community engagement in open source projects
-\end{itemize}
-\par NSF Grant Writing Workshop, attended in Portland, Oregon, 2016\par
 \needspace{6\baselineskip}\section*{Service}
 \subsection*{Department}
 \begin{itemize}[leftmargin=1.25em]
