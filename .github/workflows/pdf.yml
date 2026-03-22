@@ -76,8 +76,9 @@ jobs:
       - name: Set release metadata
         id: meta
         run: |
-          TAG="cv-${GITHUB_RUN_NUMBER}"
-          NAME="CV build ${GITHUB_RUN_NUMBER}"
+          DATE="$(date -u +'%d-%m-%Y')"
+          TAG="${DATE}"
+          NAME="${DATE}"
           echo "release_tag=${TAG}" >> "${GITHUB_OUTPUT}"
           echo "release_name=${NAME}" >> "${GITHUB_OUTPUT}"
 
