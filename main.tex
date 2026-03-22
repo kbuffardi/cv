@@ -1,0 +1,344 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[letterpaper,margin=0.72in,headsep=0.22in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{444444}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+\usepackage{setspace}
+\usepackage{etoolbox}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.22em}
+\setlist[itemize]{itemsep=0.15em,topsep=0.15em,parsep=0pt,partopsep=0pt}
+\urlstyle{same}
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+\emergencystretch=3em
+\titleformat{\section}{\Large\sffamily\bfseries\color{accent}}{}{0em}{}[\vspace{0.15em}\color{accent}\titlerule]
+\titlespacing*{\section}{0pt}{0.85em}{0.45em}
+\titleformat{\subsection}{\normalsize\sffamily\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{0.55em}{0.2em}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{13pt}
+\usepackage[
+  backend=biber,
+  style=acmnumeric,
+  sorting=none,
+  defernumbers=true,
+  maxbibnames=99,
+  doi=true,
+  url=true,
+  isbn=false,
+  eprint=false
+]{biblatex}
+
+\addbibresource{papers.bib}
+
+% Count how many entries are in each refsection
+\AtDataInput{%
+  \csnumgdef{entrycount:\therefsection}{%
+    \csuse{entrycount:\therefsection}+1}}
+    
+% Reverse the displayed bibliography numbers:
+% newest printed item gets the highest number, oldest gets [1]
+\DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}
+\newrobustcmd*{\mkbibdesc}[1]{%
+  \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+\newcommand{\bibliofont}{\small}
+\setlength{\bibitemsep}{0.22\baselineskip}
+
+\begin{document}
+
+
+\begin{center}
+{\LARGE\bfseries Dr. Kevin Buffardi}\par
+\vspace{0.25em}
+{\small
+\href{mailto:kbuffardi@acm.org}{kbuffardi@acm.org}
+\enspace\textbar\enspace
+\href{https://learnbyfailure.com}{learnbyfailure.com}
+\enspace\textbar\enspace
+\href{https://github.com/kbuffardi}{github.com/kbuffardi}}
+\end{center}
+\vspace{0.5em}
+
+\needspace{6\baselineskip}\section*{Education}
+\par \textbf{Ph.D. in Computer Science}, Virginia Tech, June 2014\par
+\par Dissertation: Modeling Student Software Testing Processes: Attitudes, Behaviors, Interventions, and Their Effects\par
+\par Committee: Stephen H. Edwards, Manuel Perez-Qui\~{n}ones, Eli Tilevich, Cliff Shaffer, Shelli Fowler\par
+\par \textbf{M.S. in Human-Computer Interaction}, with Distinction. DePaul University\par
+\par Project: Intelligent Tutoring System with Mixed-Language Interface Adviser: Peter Hastings\par
+\par \textbf{B.S. in Computer Science}, Cum Laude with Honors. University of Mary Washington\par
+\par Honors Paper: Algorithmically Generated Rudimentary Music Adviser: Karen Anewalt\par
+\needspace{6\baselineskip}\section*{Academic Experience}
+\subsection*{California State University, Chico}
+\par Full Professor, 2024---Present; Associate Professor, 2019-2024; Assistant Professor, 2014-2019\par
+\par California State University---Chico, Computer Science Department\par
+\par \textbf{New Course Preparations:}\par
+\begin{itemize}[leftmargin=1.3em]
+\item Research Methods in Computer Science (CSCI 693)
+\item Software Design and Maintenance (CSCI 630)
+\item Software Engineering (CSCI 630, before \textit{Design and Maintenance} re-design)
+\item Software Testing and Quality Assurance (CSCI 530)
+\item Special Problems in Software Engineering (CSCI 499)
+\item Advanced Topics in Data Science (CSCI 485)
+\item Capstone for CSCI, CINS, and Data Science Certificate (CSCI/CINS 490)
+\item Usability Engineering (CSCI 431, CSCI 431W)
+\item Software Engineering (CSCI 430)
+\item Intro to Data Science (CSCI/MATH 385)
+\item Programming and Algorithms I (CSCI 111)
+\item Intro to Web Programming (CINS 110)
+\end{itemize}
+\par \textbf{Program Development:} Supplementary Authorizations for K-12 Computer Science Teachers\par
+\par \textbf{CSED subject matter area and course designs of:}\par
+\begin{itemize}[leftmargin=1.3em]
+\item Exploring Computer Science (CSED 500)
+\item Computer Science Principles (CSED 501)
+\item Technology for Computer Science Education (CSED 510)
+\item Computing in Society (CSED 511)
+\item Software Design, Data Structures, and Algorithms (CSED 590)
+\end{itemize}
+\subsection*{Virginia Tech}
+\par Dean's Teaching Fellow 2009---2012, Graduate Teaching Assistant 2008---2009, 2012---2013\par
+\par Virginia Tech, Computer Science Department\par
+\par \textbf{Instructor of Record:}\par
+\begin{itemize}[leftmargin=1.3em]
+\item Software Design \& Data Structures (CS 2114)
+\item Intro to Programming in Java (CS 1054)
+\item Intro to Programming in C (CS 1044)
+\end{itemize}
+\needspace{6\baselineskip}\section*{Industry Experience}
+\par \textbf{User Experience Specialist 2006---2008, User Experience Analyst 2005---2006}\par
+\par User Centric LLC, Oakbrook Terrace, Illinois\par
+\begin{itemize}[leftmargin=1.3em]
+\item Lead user-centered design and evaluation studies
+\item Clients represent a variety of sectors including mobile tech, health care, etc.
+\end{itemize}
+\par \textbf{Usability Lab Intern 2004}\par
+\par U.S. Census Bureau, Statistical Research Division, Suitland, Maryland\par
+\begin{itemize}[leftmargin=1.3em]
+\item Developed (Flash/ActionScript) educational games for elementary school-age children
+\item Assisted in website evaluation and eye tracking studies
+\end{itemize}
+\needspace{6\baselineskip}\section*{Awards}
+\begin{itemize}[leftmargin=1.25em]
+\item Nominated: Outstanding Teaching Award (2024), Wang Excellence Award, California State University system-wide (across 23 campuses) award for excellence in teaching.
+\item Outstanding Professor Award (2022-2023), California State University, Chico. \textit{University-wide award for continued excellence in research, teaching, and service.}
+\item Global Perspectives Scholar, Global Perspectives Program---Switzerland, 2013
+\item Graduate Teaching Excellence Award, Virginia Tech, 2013
+\item Outstanding Graduate Teaching Assistant, Computer Science Dept., 2012
+\item Dean's Teaching Fellowship, College of Engineering, 2009---2012
+\end{itemize}
+\needspace{6\baselineskip}\section*{Active Research Projects}
+\subsection*{Software Engineering Education Research (SEER Lab)}
+\par \textbf{Tech Startup Model for Software Engineering and Entrepreneurship Collaboration}\par
+\par \emph{Software engineering students form partnerships with vendors and entrepreneurship students to deliver real products by combining contemporary Agile Development \& Lean Startup methods}\par
+\begin{itemize}[leftmargin=1.3em]
+\item NSF IUSE grant (\#2337271 \#2337270 \#2337269, Awarded: \$750,000, Co-PI, 2024---2026) Collaborative Research: FRONTIERS: Fostering Software Engineering Competence through Valid, Reliable, and Practical Assessments of Individual Contributions to Team Projects
+\item CSU GI 2025 grant (Awarded: \$32,254, renewed 2020, 2021; Co-PI, 2019---2022) Engineering Math and Projects Bootcamp to Improve Retention and Graduation Rates in Engineering and Computer Science (Co-PI)
+\item ECC Seed grant (Awarded: \$5,000): Emergent Technology in Tech Startup Software Engineering Projects (PI)
+\item RSCA grant (Awarded: \$6,000): Formalizing the Interdisciplinary Tech Startup Model (PI)
+\begin{itemize}[leftmargin=1.5em]
+\item Interdisciplinary collaboration with Colleen Robb and David Rahn of Management Dept.
+\item Supervised William Zamora as part of CSC2, who co-authored a paper
+\end{itemize}
+\end{itemize}
+\subsection*{Adaptive Learning Technology and Inclusive Pedagogy for Computer Science}
+\par \emph{Developing personalized, adaptive educational tools and innovating inclusive pedagogy}\par
+\begin{itemize}[leftmargin=1.3em]
+\item California Education Learning Lab (Awarded: \$50,000, PI, 2024) Python 4 All
+\item National Science Foundation, BCP (\#2315883 Awarded: \$299,912, PI, 2023---2025) BPC-DP: Embedding Representation, Relevance, and Equity in a Personalized System of Instruction
+\item California Education Learning Lab (Awarded: \$100,000, PI, 2020---2022) Coding Community: Inclusive Space for Programming Tutorials and Adaptive Learning
+\item Department of Education American Rescue Plan Act Higher Education Emergency Relief Funds (Awarded: \$36,834, PI, 2021---2022) Coding Online Videos with Inclusive Demonstrations
+\item Supervised Subhed Chavan (2021-2022), who co-authored 1 paper; Juan Aguirre-Ayala (2020) as part of Chico STEM Connections Collaborative Summer Undergraduate Research Program (SURP), who co-authored 1 paper; Pedro Valdivia (2017-2019) as part of SURP, who co-authored 3 papers; Destiny Rogers (2018) as part of CSC2, who co-authored 1 paper; Pratik Gundlupet Venkatesh (2016), who developed a prototype
+\end{itemize}
+\needspace{6\baselineskip}\section*{Previous Research Projects}
+\subsection*{Course-Based Undergraduate Research Experience and Entrepreneurship (CURE-E)}
+\par Integrating research and authentic professional experiences in undergraduate courses\par
+\begin{itemize}[leftmargin=1.3em]
+\item NSF HSI (\#1953751 Awarded: \$2,200,001, Senior Personnel, 2020---2025) STEM Course Transformation: Cultivating a Culture of Entrepreneurial Mindset and Undergraduate Research
+\begin{itemize}[leftmargin=1.5em]
+\item Design and adopt \textit{Color Vision Project} research projects into CSCI 111
+\item Faculty Lead, training faculty on CURE-E course development (2022-2025)
+\end{itemize}
+\end{itemize}
+\subsection*{Localized Free and Open Source Software with Chico Open Source Consortium}
+\par Measuring the impact of software engineering students collaborating face-to-face with a community organization of software professionals on Free and Open Source Software projects.\par
+\begin{itemize}[leftmargin=1.3em]
+\item Produced open source project, BossyUI
+\item Supervised MS students, Priyanka Chordiya and Pooja Shende, who both graduated 2016
+\item Priyanka Chordiya presented a poster at AAAS conference on supervised research project
+\end{itemize}
+\subsection*{Graduate Research Assistant, Virginia Tech, 2010---2014}
+\par \textbf{CodeWorkout:} NSF TUES-Type I Award \#1245589\par
+\begin{itemize}[leftmargin=1.3em]
+\item Wrote draft of accepted NSF TUES proposal (Awarded \$321,090) and initiated development
+\end{itemize}
+\par CloudSpace, Student Transition Engineering Program (STEP)\par
+\subsection*{Undergraduate Research Assistant, 2003}
+\par NSF Research Experience for Undergraduates, UMBC, Baltimore, Maryland\par
+\section*{Peer-Reviewed Paper Publications}
+\begin{refsection}
+\nocite{buffardi2026studentreflections,
+more2026pareto,
+bijoor2025gitdash,
+wang2025expanding,
+buffardi2025consistency,
+buffardi2024designing,
+buffardi2023cognitive,
+buffardi2023codevid,
+buffardi2022integrating,
+buffardi2022codewitus,
+morrison2022evidence,
+buffardi2021relevant,
+alavi2021redesigning,
+buffardi2021unittestsmells,
+sabin2020panel,
+alavi2020assessing,
+buffardi2020fostering,
+buffardi2020assessingindividual,
+robb2019bridging,
+buffardi2019significance,
+buffardi2019measuring,
+buffardi2018bughide,
+buffardi2018techstartup,
+buffardi2018implementing,
+buffardi2017comparing,
+buffardi2017learning,
+buffardi2017techstartupsjccc,
+robb2017techstartups,
+murphy2017community,
+karnik2016factors,
+pierson2016mindfuleating,
+buffardi2016localizedprojects,
+buffardi2015localizedcollaboration,
+buffardi2015reconsidering,
+buffardi2014responses,
+buffardi2014formative,
+buffardi2013effective,
+buffardi2013impactsadaptive,
+buffardi2012impactsteaching,
+buffardi2012exploring,
+buffardi2010copractice,
+buffardi2007tachistoscopic,
+mcfarlin2007usability,
+bojko2006eyetracking,
+buffardi2004music}
+\printbibliography[heading=none]
+\end{refsection}
+
+\needspace{6\baselineskip}\section*{Posters \& Presentations}
+{\small
+\noindent\makebox[2.6em][l]{\textbf{[p12]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K. \& Wang, R. ``Integrating Diverse Representation, Relevance, and Equity in K---12 Computing Classes.'' Presentation at Computer Science Teachers Association (CSTA) 2025.}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p11]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K. ``Thinking like a Tester.'' Guest Speaker, Computer Science Colloquium, University of California, Santa Barbara, 2024}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p10]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K. ``Codewit.us: A Platform for Diverse Perspectives in Coding'' Invited Speaker at University of California, Davis, 2023}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p09]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K. \& Edwards, S.H. ``Adaptive and Social Mechanisms for Automated Improvement of eLearning Materials.'' Poster at Learning at Scale, 2014}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p08]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K. \& Edwards, S.H. ``Introducing CodeWorkout: An Adaptive and Social Learning Environment.'' Poster at SIGCSE, 2014}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p07]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K. \& Edwards, S.H. ``Toward Effectively Reinforcing Test-Driven Development.'' Test-driven development panel, SPLASH-E, 2013}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p06]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K. \& Edwards, S.H. ``Adaptive, Automated Feedback for Encouraging Adherence to Methods.'' Poster at Conf. on Higher Education Pedagogy, 2013}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p05]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K., ``Transforming Laboratories: Can Active Classrooms Replace Closed Laboratories? Lightning Talk'', ICER, 2012}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p04]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K., ``Understanding and Persuading Adherence to Test-Driven Development.'' Doctoral Consortium, ICER, 2012}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p03]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K., Edwards, S.H., ``Student Adherence to Test-First Programming in the Classroom.'' Student Research Competition (3rd Place), SIGCSE, 2012}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p02]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Buffardi, K., Churbanau, D., Jayaraman, R.K.N., \& Edwards, S.H. ``Practice Makes Perfect with CoPractice.'' Poster at SIGCSE. March, 2010}\par
+\vspace{0.15em}
+\noindent\makebox[2.6em][l]{\textbf{[p01]}}\parbox[t]{\dimexpr\linewidth-2.6em\relax}{Pedersen, E., Buffardi, K., \& Olson, H. ``A Visual and Interactive Method to Elicit Participant Verbalization in Comparative Usability Tests.'' Presented at HFES, 2007\par
+\vspace{0.15em}
+}
+\needspace{6\baselineskip}\section*{Scholarship}
+\begin{itemize}[leftmargin=1.25em]
+\item Invited NSF panelist, proposal reviewer for CISE directorate, 2017, 2022
+\item Associate Editor PLOS One; Frontiers in ICT, section on Digital Education
+\item Associate Program Chair ACM Tech. Symposium on Computer Science Education (SIGCSE)
+\item ACM Innovation and Technology in Computing Education (ITiCSE), IEEE Software Engineering Education and Training (ICSE-SEET)
+\item Reviewer ACM International Computer Education Research (ICER), ACM Transactions of Computing Education (TOCE), Journal on Empirical Software Engineering (EMSE), ACM DATA BASE for Advances in Information Systems (SIGMISDB), Computer Science Education, Taylor and Francis
+\end{itemize}
+\needspace{6\baselineskip}\section*{Professional Development}
+\par Research and Sponsored Programs Grant Writing Bootcamp, Summer, 2018\par
+\par Hispanic Serving Institution (HSI) Faculty Learning Community, Spring, 2017\par
+\par Professor's Open Source Software Experience (POSSE) Foss2Serve---\url{http://foss2serve.org/}\par
+\par ---Professional development for instructors interested in student participation in Humanitarian Free and Open Source Software---\par
+
+\begin{itemize}[leftmargin=1.3em]
+\item Participated in NSF-funded POSSE Workshop, Spring 2015
+\end{itemize}
+
+\begin{itemize}[leftmargin=1.3em]
+\item Funded (awarded \$4000) development of open source course description and series of educational materials for a module on software testing and quality assurance
+\end{itemize}
+
+\begin{itemize}[leftmargin=1.3em]
+\item Collaborated and spoke as part of a peer-reviewed, five-person panel (SIGCSE 2017) on community engagement in open source projects
+\end{itemize}
+\par NSF Grant Writing Workshop, attended in Portland, Oregon, 2016\par
+\needspace{6\baselineskip}\section*{Service}
+\subsection*{Department}
+\begin{itemize}[leftmargin=1.25em]
+\item Adviser, Chico State Software Development Club, student club (2018---2019)
+\item Adviser, Computer Information Systems (CINS) academic adviser (2015---2024)
+\item Data Science Certificate (DSCI) academic adviser (2018---Present)
+\item Computer Science (CSCI) academic adviser (2024---Present)
+\item Masters thesis chair, Shelley Wong, \textit{Exploring the Use of Software Visualization in Computer Science Education and Developing a System to Facilitate the Construction of Algorithm Visualizations with JSAV and WebAssembly} (defended Spring 2021)
+\item Masters thesis committee, Stevie Littleton, \textit{A Deep Learning Framework for Predicting Adverse Drug Effects from Rat Transcriptomic Data: Foundations for Fair Multi-Omics Modeling} (Defending Spring 2026)\\
+Michael Gonsalves, \textit{Evaluating the mobile development frameworks Flutter and Adobe Cordova and their impact on the development process and application performance} (Defended Fall 2018)
+\item Speaker, Information session to prevent plagiarism, ECC Graduate Student Welcome
+\item Chair, RTP Standards committee (2017---2021)
+\item Chair, Library committee (2016---Present)
+\item Scholarship committee (2015---Present)
+\item Curriculum committee (2014---2020)
+\item Department Chair Selection committee (2015---2016)
+\item Faculty Supervisor/Coach (2015)
+\item Faculty search committee (2014---2016)
+\item Lab committee (2014---2015)
+\end{itemize}
+\subsection*{College, University \& Beyond}
+\begin{itemize}[leftmargin=1.25em]
+\item RTP Committee, TECH, MECH/MECHA, CSCI (2020---2022)
+\item Associate Dean Search Committee (2020---2021)
+\item MMEM Personnel Committee (2020---2021)
+\item Faculty Marshall ECC Graduation Ceremony (2018---Present)
+\item ECC Scholarship committee (2016---Present), Chair (2023---Present)
+\item ECC Rawlings/Rotary Scholarship committee (2017---Present)
+\item ECC Commencement Ceremony, Department Commencement Message (Spring 2015)
+\item All University for Teacher Education Committee (AURTEC), ECC Representative (2022---Present)
+\item Advisory Board, NSF RITEL Grant: Critical Technology to Enable Innovative and Equitable Grading Practices (2026---Present)
+\item PhD Committee, Tianjia Wang, Virginia Tech (June 2025---Present)
+\item PhD Committee, Anas Abulfaraj, DePaul University: ---Facilitating Heuristic Evaluation for Novice Evaluators--- (Defended November, 2021)
+\item Academic Senate, College of ECC Senator (2019---2022)
+\item Educational Policies \& Programs Committee, EPPC, (2019---2022)
+\item Lead Curriculum Developer, Computer Science Supplementary Authorization (2020---Present)
+\item Steering Committee, Math \& Science Teaching Initiative, MSTI (2019---Present)
+\item Steering Committee \& Academic Adviser, Data Science certificate (2018---Present)
+\item Mentor, International Friendship Program (2018---2019)
+\item Volunteer, March for Science-Chico (2017---2018)
+\item Faculty Marshall, Commencement (2016---Present)
+\item Co-founder, Chico Open Source Consortium (Fall 2014---2018)
+\item Mentor, First annual ---Startup Weekend Chico--- (2016)
+\item Director \& Board Member, Active 20-30 Chico \#100, (2016---2017),Volunteer, (2015---2017)
+\end{itemize}
+\section*{Professional Associations}
+\begin{itemize}[leftmargin=1.25em]
+\item Association for Computing Machinery (ACM)
+\item ACM Special Interest Group in Computer Science Education (SIGCSE)
+\item American Society for Engineering Education (ASEE)
+\item Upsilon Pi Epsilon International Honor Society for the Computing and Information Disciplines
+\item Chi Beta Phi National Science Honorary, National Society of Collegiate Scholars
+\end{itemize}
+
+\end{document}
