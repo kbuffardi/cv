@@ -67,12 +67,13 @@
      {\settowidth{\labelnumberwidth}{[\csuse{entrycount:\therefsection}]}%
       \setlength{\labelwidth}{\labelnumberwidth}%
       \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
       \addtolength{\leftmargin}{\labelsep}%
       \setlength{\itemsep}{\bibitemsep}%
       \setlength{\parsep}{\bibparsep}}%
    \renewcommand*{\makelabel}[1]{\hss##1}}
-  {}
   {\endlist}
+  {\item}
 \newcommand{\bibliofont}{\small}
 \setlength{\bibitemsep}{0.22\baselineskip}
 
